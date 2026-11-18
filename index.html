@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kodjo Henoc | Développeur Web & Mobile • Maintenancier Réseau</title>
+<meta name="description" content="Portfolio de Kodjo Henoc : applications web et mobiles, installation et maintenance réseau." />
+<script>document.documentElement.classList.add("js")</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { sans: ['Inter','sans-serif'] },
+  colors: { darkBg:'#060E13', cardBg:'#0B1820', cyanNeon:'#1FD1EB', cyanDark:'#0F3847' }
+}}}
+</script>
+<style>
+body{background-color:#060E13;color:#F4F9FC;
+  background-image:radial-gradient(circle at 75% 18%,rgba(31,209,235,.14),transparent 35%),radial-gradient(circle at 15% 60%,rgba(15,56,71,.25),transparent 40%);}
+.glass-card{background:rgba(11,24,32,.72);backdrop-filter:blur(12px);border:1px solid rgba(31,209,235,.25);transition:border-color .3s,box-shadow .3s,transform .3s}
+.glass-card:hover{border-color:rgba(31,209,235,.65);box-shadow:0 0 25px rgba(31,209,235,.12)}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.show{opacity:1;transform:none}
+.cursor::after{content:"|";margin-left:2px;color:#1FD1EB;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.bar{width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.nav-link.active{background:#0F3847;color:#1FD1EB}
+.project.hide{display:none}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:#1FD1EB;z-index:60}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #1FD1EB;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.cursor::after{animation:none}.bar{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="antialiased selection:bg-cyanNeon selection:text-darkBg">
+<div id="progress"></div>
+
+<header class="sticky top-0 z-50 py-4 backdrop-blur-md bg-darkBg/80 border-b border-cyanNeon/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <a href="#accueil" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-lg bg-cyanDark border border-cyanNeon/60 flex items-center justify-center text-cyanNeon"><i class="fa-solid fa-code"></i></div>
+      <span class="text-lg font-bold tracking-tight">Dev<span class="text-cyanNeon">Portfolio</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1 bg-cardBg/90 border border-cyanNeon/25 rounded-full px-2 py-1.5" aria-label="Navigation principale">
+      <a href="#accueil" class="nav-link px-4 py-1.5 rounded-full text-slate-300 hover:text-cyanNeon text-sm font-medium transition">Accueil</a>
+      <a href="#competences" class="nav-link px-4 py-1.5 rounded-full text-slate-300 hover:text-cyanNeon text-sm font-medium transition">Compétences</a>
+      <a href="#projets" class="nav-link px-4 py-1.5 rounded-full text-slate-300 hover:text-cyanNeon text-sm font-medium transition">Projets</a>
+      <a href="#services" class="nav-link px-4 py-1.5 rounded-full text-slate-300 hover:text-cyanNeon text-sm font-medium transition">Maintenance</a>
+      <a href="#contact" class="nav-link px-4 py-1.5 rounded-full text-slate-300 hover:text-cyanNeon text-sm font-medium transition">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyanDark/80 border border-cyanNeon/60 text-cyanNeon text-sm font-semibold hover:bg-cyanNeon hover:text-darkBg transition">Discutons <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+      <button id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" class="md:hidden p-2 w-10 h-10 rounded-lg bg-cardBg border border-cyanNeon/30 text-cyanNeon"><i class="fa-solid fa-bars text-lg"></i></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-3 pb-4 space-y-2 bg-cardBg border-b border-cyanNeon/20">
+    <a href="#accueil" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-cyanNeon">Accueil</a>
+    <a href="#competences" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-cyanNeon">Compétences</a>
+    <a href="#projets" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-cyanNeon">Projets</a>
+    <a href="#services" class="block px-3 py-2 rounded-lg text-slate-300 hover:text-cyanNeon">Maintenance réseau</a>
+    <a href="#contact" class="block px-3 py-2 rounded-lg text-cyanNeon font-semibold">Me contacter</a>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+<!-- HERO -->
+<section id="accueil" class="glass-card rounded-3xl p-6 sm:p-10 lg:p-14 scroll-mt-24">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-6 space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-cyanDark/80 border border-cyanNeon/40 text-cyanNeon text-xs font-bold tracking-wider uppercase">
+        <span class="w-2 h-2 rounded-full bg-cyanNeon animate-pulse"></span> Disponible pour missions & projets
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Salut, je suis <br /><span class="text-cyanNeon">Kodjo Henoc</span></h1>
+      <h2 class="text-xl sm:text-2xl font-semibold text-slate-200 min-h-[2.2em]"><span id="typing" class="cursor"></span></h2>
+      <p class="text-slate-400 leading-relaxed max-w-lg">Je conçois des applications web et mobiles modernes, rapides et évolutives, et j'assure l'installation et la maintenance d'infrastructures informatiques et réseaux.</p>
+      <div class="flex flex-wrap items-center gap-4 pt-2">
+        <a href="#projets" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-cyanNeon text-darkBg font-bold text-sm hover:brightness-110 transition shadow-lg shadow-cyanNeon/20">Voir mes projets <i class="fa-solid fa-arrow-down text-xs"></i></a>
+        <a href="docs/CV_Henoc.pdf" download class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-darkBg/80 border border-cyanNeon/40 text-white font-medium text-sm hover:border-cyanNeon transition">Télécharger mon CV <i class="fa-solid fa-download text-cyanNeon"></i></a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3 flex justify-center">
+      <div class="relative w-64 h-72 sm:w-72 sm:h-80 rounded-2xl overflow-hidden border-2 border-cyanNeon/40 shadow-2xl shadow-cyanNeon/15 bg-cyanDark/40 flex items-center justify-center">
+        <!-- Pour votre photo : remplacez ce bloc par <img src="photo.jpg" alt="Kodjo Henoc" class="w-full h-full object-cover" /> -->
+        <img src="img/photo_2026-11-18_22-59-56.jpg" alt="photo de profil">
+        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent"></div>
+        <div class="absolute bottom-3 left-3 right-3 glass-card p-2.5 rounded-xl text-center"><span class="text-xs font-semibold text-cyanNeon"><i class="fa-solid fa-terminal mr-1"></i> Full Stack & Réseau</span></div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3 space-y-4">
+      <div class="bg-darkBg/85 border border-cyanNeon/30 rounded-2xl p-5 space-y-5">
+        <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-lg bg-cyanDark flex items-center justify-center text-cyanNeon"><i class="fa-solid fa-laptop-code"></i></div><div><div class="text-xl font-bold text-cyanNeon">Web & Mobile</div><div class="text-xs text-slate-400">Laravel, React, Flutter</div></div></div>
+        <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-lg bg-cyanDark flex items-center justify-center text-cyanNeon"><i class="fa-solid fa-network-wired"></i></div><div><div class="text-xl font-bold text-cyanNeon">Réseau & IT</div><div class="text-xs text-slate-400">Câblage, caméras, routeurs</div></div></div>
+        <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-lg bg-cyanDark flex items-center justify-center text-cyanNeon"><i class="fa-solid fa-layer-group"></i></div><div><div class="text-xl font-bold text-cyanNeon"><span class="counter" data-target="10">0</span>+ projets</div><div class="text-xs text-slate-400">Applications & sites livrés</div></div></div>
+      </div>
+      <div class="flex items-center justify-center gap-3">
+        <a href="https://github.com/conehagbogbaze-collab/" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded-full bg-darkBg border border-cyanNeon/30 flex items-center justify-center text-slate-300 hover:text-cyanNeon hover:border-cyanNeon transition"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kodjo-hénoc-agbogbaze/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-darkBg border border-cyanNeon/30 flex items-center justify-center text-slate-300 hover:text-cyanNeon hover:border-cyanNeon transition"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/22891129330?text=Bonjour" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-darkBg border border-cyanNeon/30 flex items-center justify-center text-slate-300 hover:text-cyanNeon hover:border-cyanNeon transition"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences" class="space-y-8 scroll-mt-24 reveal">
+  <div><h2 class="text-3xl font-extrabold">Compétences & <span class="text-cyanNeon">technologies</span></h2><p class="text-slate-400 mt-2 max-w-xl">Les outils que j'utilise au quotidien, du code à l'armoire réseau.</p></div>
+  <div id="skills" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets" class="space-y-8 scroll-mt-24 reveal">
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+    <div><h2 class="text-3xl font-extrabold">Mes <span class="text-cyanNeon">projets</span></h2><p class="text-slate-400 mt-2">Filtrez par type de réalisation.</p></div>
+    <div id="filters" class="flex flex-wrap gap-2" role="group" aria-label="Filtrer les projets">
+      <button data-f="all" class="filter px-4 py-1.5 rounded-full border border-cyanNeon/40 text-sm bg-cyanNeon text-darkBg font-semibold">Tous</button>
+      <button data-f="web" class="filter px-4 py-1.5 rounded-full border border-cyanNeon/40 text-sm text-slate-300 hover:text-cyanNeon">Web</button>
+      <button data-f="mobile" class="filter px-4 py-1.5 rounded-full border border-cyanNeon/40 text-sm text-slate-300 hover:text-cyanNeon">Mobile</button>
+      <button data-f="reseau" class="filter px-4 py-1.5 rounded-full border border-cyanNeon/40 text-sm text-slate-300 hover:text-cyanNeon">Réseau</button>
+    </div>
+  </div>
+  <div id="projects" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+</section>
+
+<!-- MAINTENANCE -->
+<section id="services" class="space-y-8 scroll-mt-24 reveal">
+  <div><h2 class="text-3xl font-extrabold">Maintenance <span class="text-cyanNeon">réseau & IT</span></h2><p class="text-slate-400 mt-2 max-w-xl">Une infrastructure fiable, installée proprement et suivie dans le temps.</p></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="glass-card rounded-2xl p-5"><i class="fa-solid fa-ethernet text-2xl text-cyanNeon"></i><h3 class="font-bold mt-3">Câblage</h3><p class="text-sm text-slate-400 mt-1">Réseaux locaux RJ45, baies de brassage, étiquetage.</p></div>
+    <div class="glass-card rounded-2xl p-5"><i class="fa-solid fa-video text-2xl text-cyanNeon"></i><h3 class="font-bold mt-3">Vidéosurveillance</h3><p class="text-sm text-slate-400 mt-1">Installation de caméras, enregistreurs et accès à distance.</p></div>
+    <div class="glass-card rounded-2xl p-5"><i class="fa-solid fa-wifi text-2xl text-cyanNeon"></i><h3 class="font-bold mt-3">Wi-Fi & routeurs</h3><p class="text-sm text-slate-400 mt-1">Configuration, couverture, sécurité et partage de connexion.</p></div>
+    <div class="glass-card rounded-2xl p-5"><i class="fa-solid fa-screwdriver-wrench text-2xl text-cyanNeon"></i><h3 class="font-bold mt-3">Dépannage</h3><p class="text-sm text-slate-400 mt-1">Diagnostic de pannes, maintenance de postes et serveurs.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="glass-card rounded-3xl p-6 sm:p-10 scroll-mt-24 reveal">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <div class="space-y-4">
+      <h2 class="text-3xl font-extrabold">Parlons de votre <span class="text-cyanNeon">projet</span></h2>
+      <p class="text-slate-400">Décrivez votre besoin : le message s'envoie directement sur WhatsApp.</p>
+      <ul class="space-y-2 text-slate-300 text-sm">
+        <li><i class="fa-solid fa-location-dot text-cyanNeon w-5"></i> Lomé, Togo</li>
+        <li><i class="fa-solid fa-envelope text-cyanNeon w-5"></i> conehagbogbaze@gmail.com</li>
+      </ul>
+    </div>
+    <div class="space-y-3">
+      <input id="f-name" type="text" placeholder="Votre nom" class="w-full px-4 py-3 rounded-lg bg-darkBg border border-cyanNeon/30 focus:border-cyanNeon" />
+      <select id="f-type" class="w-full px-4 py-3 rounded-lg bg-darkBg border border-cyanNeon/30 focus:border-cyanNeon">
+        <option>Application web</option><option>Application mobile</option><option>Installation réseau</option><option>Maintenance / dépannage</option>
+      </select>
+      <textarea id="f-msg" rows="4" placeholder="Votre message" class="w-full px-4 py-3 rounded-lg bg-darkBg border border-cyanNeon/30 focus:border-cyanNeon"></textarea>
+      <p id="f-err" class="text-sm text-red-400 hidden">Renseignez votre nom et votre message.</p>
+      <button id="f-send" class="w-full px-6 py-3 rounded-lg bg-cyanNeon text-darkBg font-bold hover:brightness-110 transition"><i class="fa-brands fa-whatsapp mr-1"></i> Envoyer sur WhatsApp</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="text-center text-sm text-slate-500 py-8 border-t border-cyanNeon/10">© <span id="year"></span> Kodjo Henoc. Tous droits réservés.</footer>
+
+<button id="to-top" aria-label="Retour en haut" class="hidden fixed bottom-5 right-5 w-11 h-11 rounded-full bg-cyanNeon text-darkBg shadow-lg z-50"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+/* ===== DONNÉES : modifiez ici vos compétences et projets ===== */
+const WHATSAPP = "22891129330"; // votre numéro, format international sans +
+const ROLES = ["Développeur Web & Mobile", "Maintenancier Réseau", "Créateur d'applications de gestion"];
+const SKILLS = [
+  { title:"Développement web", icon:"fa-globe", items:[["Laravel / PHP",85],["React / JavaScript",80],["HTML, CSS, Tailwind",92]] },
+  { title:"Mobile", icon:"fa-mobile-screen", items:[["Flutter / Dart",75],["Interfaces responsives",88]] },
+  { title:"Réseau", icon:"fa-network-wired", items:[["Câblage & brassage",90],["Routeurs & Wi-Fi",85],["Caméras de surveillance",85]] },
+  { title:"Outils", icon:"fa-screwdriver-wrench", items:[["Git & GitHub",78],["MySQL",80]] }
+];
+const PROJECTS = [
+  { name:"Application de gestion & bilan", cat:"web", icon:"fa-chart-line", desc:"Ventes, achats, dépenses, stock, trésorerie et bilan jour/semaine/mois/année.", tags:["JavaScript","Gestion"] },
+  { name:"Commande par QR Code (restaurant)", cat:"web", icon:"fa-qrcode", desc:"Menu, panier, vue cuisine et serveur, administration et statistiques.", tags:["Web","QR Code"] },
+  { name:"Application mobile", cat:"mobile", icon:"fa-mobile-screen-button", desc:"Application Flutter : remplacez ce texte par votre projet.", tags:["Flutter"] },
+  { name:"Site vitrine d'entreprise", cat:"web", icon:"fa-store", desc:"Site responsive rapide : remplacez ce texte par votre projet.", tags:["Laravel","Tailwind"] },
+  { name:"Installation de vidéosurveillance", cat:"reseau", icon:"fa-video", desc:"Caméras, enregistreur et accès à distance pour un site.", tags:["Caméras","Réseau"] },
+  { name:"Réseau local d'entreprise", cat:"reseau", icon:"fa-ethernet", desc:"Câblage, baie de brassage, routeurs et Wi-Fi.", tags:["Câblage","Wi-Fi"] }
+];
+
+/* ===== Rendu ===== */
+document.getElementById("skills").innerHTML = SKILLS.map(s => `
+  <div class="glass-card rounded-2xl p-6 space-y-4">
+    <h3 class="font-bold text-lg"><i class="fa-solid ${s.icon} text-cyanNeon mr-2"></i>${s.title}</h3>
+    ${s.items.map(([n,v]) => `
+      <div><div class="flex justify-between text-sm mb-1"><span>${n}</span><span class="text-cyanNeon">${v}%</span></div>
+      <div class="h-2 rounded-full bg-cyanDark/60"><div class="bar h-2 rounded-full bg-cyanNeon" data-w="${v}"></div></div></div>`).join("")}
+  </div>`).join("");
+
+document.getElementById("projects").innerHTML = PROJECTS.map(p => `
+  <article class="project glass-card rounded-2xl p-6 space-y-3 hover:-translate-y-1" data-cat="${p.cat}">
+    <div class="w-11 h-11 rounded-lg bg-cyanDark flex items-center justify-center text-cyanNeon"><i class="fa-solid ${p.icon}"></i></div>
+    <h3 class="font-bold">${p.name}</h3>
+    <p class="text-sm text-slate-400">${p.desc}</p>
+    <div class="flex flex-wrap gap-2">${p.tags.map(t => `<span class="text-xs px-2 py-1 rounded bg-cyanDark/70 text-cyanNeon">${t}</span>`).join("")}</div>
+  </article>`).join("");
+
+/* ===== Effet machine à écrire ===== */
+(function(){
+  const el = document.getElementById("typing"); let r = 0, c = 0, del = false;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = ROLES[0]; el.classList.remove("cursor"); return; }
+  (function tick(){
+    const w = ROLES[r];
+    el.textContent = w.slice(0, c += del ? -1 : 1);
+    let d = del ? 35 : 70;
+    if (!del && c === w.length) { del = true; d = 1600; }
+    else if (del && c === 0) { del = false; r = (r + 1) % ROLES.length; d = 400; }
+    setTimeout(tick, d);
+  })();
+})();
+
+/* ===== Menu mobile ===== */
+const btn = document.getElementById("menu-btn"), menu = document.getElementById("mobile-menu");
+btn.addEventListener("click", () => { const o = menu.classList.toggle("hidden") === false; btn.setAttribute("aria-expanded", o); });
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { menu.classList.add("hidden"); btn.setAttribute("aria-expanded", false); }));
+
+/* ===== Filtres de projets ===== */
+document.querySelectorAll(".filter").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".filter").forEach(x => { x.classList.remove("bg-cyanNeon","text-darkBg","font-semibold"); x.classList.add("text-slate-300"); });
+  b.classList.add("bg-cyanNeon","text-darkBg","font-semibold"); b.classList.remove("text-slate-300");
+  document.querySelectorAll(".project").forEach(p => p.classList.toggle("hide", b.dataset.f !== "all" && p.dataset.cat !== b.dataset.f));
+}));
+
+/* ===== Apparition au scroll, barres et compteurs ===== */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("show");
+  e.target.querySelectorAll(".bar").forEach(b => b.style.width = b.dataset.w + "%");
+  io.unobserve(e.target);
+}), { threshold: .15 });
+document.querySelectorAll(".reveal").forEach(s => io.observe(s));
+
+document.querySelectorAll(".counter").forEach(el => {
+  const t = +el.dataset.target; let n = 0;
+  const id = setInterval(() => { el.textContent = ++n; if (n >= t) clearInterval(id); }, 90);
+});
+
+/* ===== Lien actif, barre de progression, retour en haut ===== */
+const links = document.querySelectorAll(".nav-link"), secs = [...links].map(l => document.querySelector(l.getAttribute("href")));
+const toTopBtn = document.getElementById("to-top"), prog = document.getElementById("progress");
+function onScroll(){
+  const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (y / h * 100) + "%";
+  toTopBtn.classList.toggle("hidden", y < 600);
+  let cur = 0; secs.forEach((s, i) => { if (s.offsetTop - 140 <= y) cur = i; });
+  links.forEach((l, i) => l.classList.toggle("active", i === cur));
+}
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+toTopBtn.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
+
+/* ===== Formulaire → WhatsApp ===== */
+document.getElementById("f-send").addEventListener("click", () => {
+  const n = document.getElementById("f-name").value.trim(), m = document.getElementById("f-msg").value.trim();
+  const err = document.getElementById("f-err");
+  if (!n || !m) { err.classList.remove("hidden"); return; }
+  err.classList.add("hidden");
+  const t = document.getElementById("f-type").value;
+  open(`https://wa.me/${WHATSAPP}?text=` + encodeURIComponent(`Bonjour, je suis ${n}.\nBesoin : ${t}\n${m}`), "_blank");
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
